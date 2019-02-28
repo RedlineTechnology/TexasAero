@@ -1,0 +1,967 @@
+/* ////////////////////////////////////////////////////////////////////////// */
+/*                                   PAGES                                    */
+/* ////////////////////////////////////////////////////////////////////////// */
+
+.section {
+  display: flex;
+  flex-direction: column;
+  position: relative;
+  padding: 4em 1em;
+  @include breakpoint('desktop') {
+    padding: 4em 2em;
+    flex-direction: row;
+  }
+  &.hero {
+    padding: 7em 1em 4em;
+    h1 {
+      margin: 0;
+    }
+  }
+  h2 {
+    text-transform: uppercase;
+  }
+  h2 + p {
+    margin-top: .5em;
+    font-size: 1.1em;
+  }
+  h5 {
+    margin-bottom: .5em;
+  }
+  & > div {
+    padding: 1em;
+  }
+  .innerbox {
+    h1 {
+      margin-top: 0;
+    }
+    margin: 1em auto;
+    padding: 1em;
+    max-width: 100%;
+    text-align: left;
+    font-size: 1.2em;
+    background: rgba(255,255,255,0.75);
+    color: rgba(0,0,0,0.9);
+    @include breakpoint('desktop') {
+      margin: 2em;
+      padding: 2em;
+      max-width: 50%;
+      &.full {
+        max-width: 100%;
+      }
+    }
+    h1,h2,h3,h4,h5,h6 {
+      color: $red;
+    }
+    &.dark {
+      background: rgba(0,0,0,0.7);
+      color: white;
+      h1,h2,h3,h4,h5,h6 {
+        color: white;
+      }
+    }
+    &.center {
+      text-align: center;
+    }
+  }
+  .innerImage {
+    max-width: 100%;
+    height: 100px;
+    margin: 0 1em;
+    @include bgimage('http://www.placekitten.com/400/400');
+    @include breakpoint('desktop') {
+      width: 30%;
+      height: auto;
+      margin: 10vh auto;
+    }
+  }
+}
+
+.lower-arrow {
+  background: none !important;
+  padding: 0 !important;
+  margin: 0 !important;
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 100% !important;;
+  max-width: 100% !important;
+  text-align: center;
+  box-sizing: border-box;
+  font-size: 1.2em;
+  &:before {
+    content: '\f078';
+    @include fontawesome(300);
+    font-size: 2em;
+    position: absolute;
+    left: 0;
+    width: 100%;
+    text-align: center;
+    bottom: .5em;
+    margin-left: -.25em;
+    color: black;
+  }
+  &.white {
+    &:before {
+      color: white;
+    }
+  }
+}
+
+/*--------------------------------------------------------------
+# TESTIMONIALS
+--------------------------------------------------------------*/
+
+#testimonials {
+  @include bgimage('ta-ext-75dark.jpg');
+  & > div {
+    max-width: 100%;
+    margin: 0 auto;
+    @include breakpoint('desktop') {
+      max-width: $contentWidth;
+    }
+  }
+  p {
+    @include bodyfont;
+    font-size: 1.1em;
+    color: rgba(255,255,255,0.75);
+    margin-bottom: .5em;
+    span {
+      @include headlinefont;
+      text-transform: uppercase;
+      color: white;
+    }
+  }
+  h6 {
+    color: rgba(255,255,255,0.75);
+    text-align: right;
+  }
+  @include breakpoint('desktop') {
+    height: 80vh;
+    @include bgimage($image: 'ta-ext-lg.jpg', $pos: center 30%);
+    p {
+      color: black;
+      span { color: $red; }
+    }
+    h6 { color: $red; }
+  }
+}
+
+/*--------------------------------------------------------------
+# FEATURE LIST
+--------------------------------------------------------------*/
+
+.feature-list {
+  @include bodyfont;
+  font-size: 1.2em;
+  display: flex;
+  margin: 0 auto 25px;
+  padding-top: 65px;
+  list-style: none;
+  overflow-y: scroll;
+  li {
+    position: relative;
+    flex-grow: 1;
+    text-align: center;
+    margin: 0 15px;
+    padding: 10px;
+    i {
+      color: $red;
+      position: absolute;
+      top: -55px;
+      left: 50%;
+      width: 50px;
+      line-height: 50px;
+      height: 50px;
+      border-radius: 25px;
+      margin-left: -25px;
+      font-size: 40px;
+    }
+  }
+}
+
+/*--------------------------------------------------------------
+# CONTACT TAG
+--------------------------------------------------------------*/
+
+.contact-tag {
+  display: inline-flex;
+  align-items: center;
+  background: transparent;
+  border: 1px solid $red;
+  padding: 0 1em !important;
+  text-align: left;
+  margin: 0;
+  @include breakpoint('desktop') {
+    margin: 0 auto;
+  }
+  .thumb {
+    // @include bgimage($image: 'people_test.png', $pos: center top);
+    height: 10em;
+    width: 1px;
+    padding: 0;
+    margin-right: 0;
+    flex-shrink: 0;
+    z-index: 10;
+    @include breakpoint('desktop') {
+      height: 6.5em;
+    }
+  }
+  .info {
+    text-align: left;
+    z-index: 10;
+    p {
+      color: rgba(255,255,255,0.8);
+      font-size: .9em;
+      margin: 0 0 -5px;
+    }
+    h3 {
+      color: white !important;
+      line-height: 1em;
+      margin: .1em 0;
+    }
+    h6 {
+      @include bodyfont;
+      color: white !important;
+      letter-spacing: 0;
+      text-transform: none;
+      font-weight: 400;
+      margin-top: -5px;
+      a {
+        @include link_color(white,white);
+        text-decoration: none;
+      }
+    }
+  }
+  &.dark {
+    border: 1px solid white;
+  }
+  &.light {
+    border: 1px solid white;
+    background: white;
+    box-shadow: 0 3px 5px rgba(0,0,0,0.5);
+    .info {
+      p, h3, h6 {
+        color: $red !important;
+        a {
+          @include link_color($red,$red);
+          text-decoration: none;
+        }
+      }
+    }
+    &:after {
+      display: none;
+    }
+  }
+  &.center {
+    text-align: center;
+    .info {
+      text-align: center;
+    }
+  }
+  &.big {
+    h3 {
+      letter-spacing: 0;
+      font-size: 2.75em;
+    }
+  }
+  &:after {
+    content: "";
+    background: $red;
+    height: 8em;
+    width: 2000%;
+    position: absolute;
+    z-index: 0;
+    left: -500%;
+    @include breakpoint('desktop') {
+      height: 5em;
+    }
+  }
+}
+
+/*--------------------------------------------------------------
+# DEFAULT PAGE TEMPLATE
+--------------------------------------------------------------*/
+
+.page {
+  .hero {
+    @include bgimage('ta-ext-50dark.jpg');
+    justify-content: center;
+    text-align: center;
+    h1 {
+      color: white;
+    }
+  }
+  .page-content {
+    flex-direction: column;
+    & > div {
+      max-width: $contentWidth;
+      margin: 0 auto;
+      span {
+        @include headlinefont;
+        text-transform: uppercase;
+        color: $red;
+      }
+    }
+    .wp-block-column {
+      text-align: center;
+      margin-left: 0;
+      @include breakpoint('desktop') {
+        text-align: left;
+        &:not(:first-child) {
+          margin-left: 1em;
+        }
+      }
+    }
+    h5 {
+      color: $red;
+      line-height: 1em;
+    }
+  }
+}
+
+/*--------------------------------------------------------------
+# HOME PAGE
+--------------------------------------------------------------*/
+
+.home .hero {
+	text-align: center;
+	display: flex;
+  flex-flow: column;
+  flex-direction: column;
+  //height: calc( 100vh - 6em);
+  height: 100vh;
+	a {
+		@include vertical-align;
+    flex-direction: column;
+		@include link_color(white,white);
+		height: 100%;
+		width: 100%;
+    text-decoration: none;
+		h1 {
+			margin: 0;
+	    padding: .3em .6em;
+	    line-height: 1;
+			position: relative;
+			pointer-events: none;
+			cursor: pointer;
+			box-shadow: 0 5px 20px rgba(0,0,0,0.5);
+			text-shadow: 0 5px 20px rgba(0,0,0,0.5);
+			@include breakpoint('mobile') {
+				font-size: 2.5em;
+			}
+		}
+	}
+	@include breakpoint('desktop') {
+		flex-flow: row;
+		flex-direction: row;
+		a {
+      flex-direction: row;
+      h1 {
+  			box-shadow: none;
+  			text-shadow: none;
+      }
+		}
+	}
+
+	.logo {
+		display:none;
+		width: 250px;
+		height: 180px;
+		@include bgimage($image: 'ta-logo_white_shadowed.png', $pos: center top, $size: contain);
+		float: none;
+		position: absolute;
+		top: 15%;
+		left: 50%;
+		margin-left: -125px;
+		transition: left 500ms ease;
+		pointer-events: none;
+		cursor: pointer;
+		&.left {
+			left: 25%;
+		}
+		&.right {
+			left: 75%;
+			@include bgimage($image: 'ta-adg-logo_white.png', $pos: center top, $size: contain);
+		}
+		@include breakpoint('desktop') {
+			display: block;
+		}
+	}
+
+	.fbo, .adg {
+		background-size: cover;
+		background-repeat: no-repeat;
+		background-position: center center;
+		flex: 1;
+
+		.mobile-logo {
+			width: 40%;
+			height: 125px;
+			margin: 0;
+			padding: 0;
+			background-size: contain;
+			background-position: center top;
+			background-repeat: no-repeat;
+		}
+
+		h1 {
+			&:before{ //top border animation
+		    content: '';
+		    position: absolute;
+		    border-top: 5px solid white;
+		    bottom: 0;
+		    right: 0;
+		    left: 0;
+		    transition: all 500ms;
+			}
+			&:after{ //bottom border animation
+		    content: '';
+		    position: absolute;
+		    border-bottom: 5px solid white;
+		    top: 0;
+		    left: 0;
+		    right: 0;
+		    transition: all 500ms;
+			}
+			span { // spoof a div here to allow two more psuedo elements
+				display: block;
+		    position: absolute;
+				pointer-events: none;
+				cursor: pointer;
+		    top: 0;
+		    left: 0;
+		    right: 0;
+		    bottom: 0;
+				&:before{ //left border animation
+			    content: '';
+			    position: absolute;
+			    border-left: 5px solid white;
+			    left: 0;
+			    top: 0;
+			    bottom: 0;
+			    transition: all 500ms;
+				}
+				&:after{ //right border animation
+			    content: '';
+			    position: absolute;
+			    border-right: 5px solid white;
+			    right: 0;
+			    bottom: 0;
+			    top: 0;
+			    transition: all 500ms;
+				}
+			}
+		}
+		@include breakpoint('desktop') {
+			h1 {
+				&:before {
+					left: 100%;
+				}
+				&:after {
+					right: 100%;
+				}
+				& span:before {
+					bottom: 100%;
+				}
+				& span:after {
+					top: 100%;
+				}
+			}
+			a:hover, a:active, a:focus {
+				cursor: pointer;
+				h1:before {
+					left: 0;
+				}
+				h1:after {
+					right: 0;
+				}
+				h1 span:before {
+					bottom: 0;
+				}
+				h1 span:after {
+					top: 0;
+				}
+			}
+		}
+	}
+
+	.fbo {
+		@include bgoverlay('ta-fbo-bg.jpg');
+		.mobile-logo {
+			@include bgimage($image: 'ta-logo_white_shadowed.png', $size: contain);
+		}
+		a:hover, a:active, a:focus {
+			background-color: rgba($blue,0.8);
+		}
+		@include breakpoint('desktop') {
+				@include bgimage('ta-fbo-bg.jpg');
+		}
+	}
+	.adg {
+		@include bgimage('ta-adg-bg.jpg');
+		.mobile-logo {
+			@include bgimage($image: 'ta-adg-logo_white.png', $size: contain);
+		}
+		a {
+			background-color: rgba($red,0.8);
+			@include breakpoint('desktop') {
+			 	&, &:link, &:visited {
+					background-color: transparent;
+				}
+				&:hover, &:active, &:focus {
+					background-color: rgba($red,0.8);
+				}
+			}
+		}
+	}
+	.lower {
+		@include bodyfont;
+		color: white;
+		font-size: 1em;
+    margin-top: 1em;
+		pointer-events: none;
+		cursor: pointer;
+		i {
+			font-size: 2em;
+			margin-bottom: -2px;
+		}
+		ul {
+			margin: 0;
+			li {
+				display: inline-block;
+				padding: 0 10px;
+				border-top: 2px solid white;
+			}
+		}
+		@include breakpoint('desktop') {
+			bottom: 3em;
+			font-size: 1.25em;
+      position: absolute;
+  		width: 100%;
+			i {
+				margin-bottom: 0;
+			}
+			ul li {
+				border-top: none;
+			}
+		}
+	}
+}
+
+/*--------------------------------------------------------------
+# FBO PAGE
+--------------------------------------------------------------*/
+
+.page-fbo {
+  .hero {
+    align-items: flex-start;
+    justify-content: center;
+    min-height: 100vh;
+    padding: 50vh 1em 4em;
+  	@include bgimage('ta-fbo-bg.jpg');
+    background-attachment: fixed;
+    @include breakpoint('desktop') {
+      flex-direction: row;
+      padding: 4em 1em;
+    }
+    a {
+      width: 100%;
+    }
+    p {
+      font-size: 1em;
+    }
+    ul {
+      @include bodyfont;
+      color: rgba(255,255,255,0.8);
+      list-style: none;
+      margin: 0;
+      max-width: 325px;
+      font-size: .8em;
+      li {
+        display: inline-block;
+        padding-right: 10px;
+        a {
+          @include link_color(rgba(255,255,255,0.8), white);
+          text-decoration: underline;
+        }
+      }
+    }
+    .page-content {
+      margin-top: 0;
+      .wp-block-column {
+        margin-bottom: 0;
+        text-align: left;
+      }
+      .wp-block-button {
+        margin:1.5em auto 0;
+      }
+      @include breakpoint('desktop') {
+        .wp-block-column {
+          margin-bottom: 1em;
+        }
+        .wp-block-button {
+          margin: 1em auto 0;
+        }
+      }
+    }
+    .fuel {
+      width: 100%;
+      display: block;
+      border: 1px solid white;
+      padding: 10px;
+      margin-bottom: .5em;
+      text-align: center;
+      &.avfuel {
+        &:before {
+          content: "";
+          height: 1.5em;
+          width: 2em;
+          margin-bottom: -.5em;
+          display: inline-block;
+          @include bgimage($image: 'avfuel_white.png', $size: contain);
+        }
+      }
+      &:hover, &:active, &:focus {
+        background: white;
+        color: black;
+        &.avfuel {
+          &:before {
+            @include bgimage($image: 'avfuel_color.png', $size: contain);
+          }
+        }
+      }
+      @include breakpoint('mobile') {
+        &.avfuel {
+          background: white;
+          color: black;
+          &:before {
+            @include bgimage($image: 'avfuel_color.png', $size: contain);
+          }
+        }
+      }
+    }
+  }
+  #reservations {
+    background: white;
+    & > div {
+      margin: 0 auto;
+      padding-bottom: 30px;
+    }
+  }
+  #testimonials {
+    @include breakpoint('desktop') {
+      @include bgimage($image: 'ta-ext-lg.jpg', $pos: center 30%);
+    }
+  }
+  #maintenance {
+    & > div:not(.innerImage) {
+      max-width: 100%;
+      margin: 0 auto;
+      @include breakpoint('desktop') {
+        max-width: $contentWidth;
+        margin: 10vh auto;
+      }
+    }
+    @include breakpoint('desktop') {
+      padding-top: 2em;
+    }
+    .innerImage {
+      @include bgimage('ta-maintenance.jpg');
+    }
+  }
+  #charter {
+    @include bgoverlay('gv-jet-engine.jpg');
+    background-attachment: fixed;
+    flex-direction: column;
+    padding-bottom: 6em;
+    .innerbox {
+      width: 100%;
+      max-width: 100%;
+      margin: 2em auto;
+      @include breakpoint('desktop') {
+        width: 70%;
+      }
+    }
+  }
+  #training {
+    & > div {
+      max-width: 100%;
+      margin: 0 auto;
+      @include breakpoint('desktop') {
+        max-width: $contentWidth;
+        margin: 10vh auto;
+      }
+    }
+  }
+}
+
+/*--------------------------------------------------------------
+# JET SALES PAGE
+--------------------------------------------------------------*/
+
+.page-jet-sales {
+  .hero {
+    min-height: 100vh;
+    @include bgimage('ta-ext-hero.jpg');
+    background-attachment: fixed;
+    align-items: center;
+    justify-content: center;
+    .innerbox {
+      width: 30em;
+      margin: 10vh auto;
+    }
+    .littlenav {
+      display: flex;
+      justify-content: space-evenly;
+      margin: 0 2em 1em;
+      a {
+        @include bodyfont;
+        @include link_color(white,black);
+        text-decoration: none;
+        display: block;
+        font-size: 1.4em;
+        border: 2px solid white;
+        padding: 0;
+        margin: 0 .5em;
+        flex-grow: 1;
+        background: rgba(255,255,255,0);
+        transition: all 0.3s ease;
+        &:hover, &:active, &:focus {
+          background: rgba(255,255,255,1);
+        }
+      }
+    }
+    @include breakpoint('desktop') {
+      .innerbox {
+        margin: 5vh auto;
+      }
+      .littlenav {
+        a {
+          padding: .5em 1em;
+        }
+      }
+    }
+  }
+  #forsale {
+    padding: 0;
+    & > div {
+      padding: 0;
+      width: 100%;
+    }
+    .aircraft {
+      width: 100%;
+      min-height: 50vh;
+      position: relative;
+      display: flex;
+      flex-direction: column;
+      @include breakpoint('desktop') {
+        flex-direction: row;
+        &:nth-child(2n) {
+          flex-direction: row-reverse;
+        }
+      }
+      & > div {
+        width: 100%;
+        flex-grow: 1;
+        @include breakpoint('desktop') {
+          width: 50%;
+        }
+        &.info {
+          padding: 2em;
+          display: flex;
+          flex-flow: column;
+          justify-content: space-between;
+          align-items: flex-start;
+          .basic-info {
+            position: relative;
+            &:before {
+              content: "";
+              display: block;
+              height: 1px;
+              width: 100%;
+              background: $red;
+              position: absolute;
+              top: .75em;
+              z-index: -1;
+            }
+          }
+          .description {
+            margin-top: 1em;
+          }
+        }
+        &.pics {
+          min-height: 200px;
+          @include bgimage('null');
+          .slick-slider, .slick-list, .slick-track, .slick-slide {
+            height: 100%;
+            min-height: 200px;
+          }
+          .pic {
+            width: 100%;
+            @include bgimage('null');
+            margin: 0 !important;
+          }
+          .slick-next { right: 5%; }
+          .slick-prev { left: 5%; }
+          .slick-prev:before, .slick-next:before {
+            color: white;
+            text-shadow: 0 3px 5px rgba(0,0,0,0.5);
+          }
+        }
+      }
+      h6 { // for sale
+        @include bodyfont;
+        font-weight: 400;
+        text-transform: lowercase;
+        color: $red;
+        background: white;
+        padding: 0 5px;
+        z-index:50;
+        display: inline-block;
+      }
+      h1 { // headline
+        color: rgba(0,0,0,0.8);
+        margin-top: 0;
+        line-height: 1em;
+      }
+      .button {
+        margin: 5px 0;
+      }
+    }
+  }
+  #contact {
+    background: $red;
+    @include breakpoint('mobile') {
+      padding: 1.25em 1em;
+    }
+  }
+  #testimonials {
+    @include breakpoint('desktop') {
+      align-items: center;
+      @include bgimage('ta-ext-hero.jpg');
+      background-attachment: fixed;
+      .slick-slider {
+        padding: 3em 2em 2em;
+        background: rgba(255,255,255,0.8);
+      }
+      .slick-next:before, .slick-prev:before {
+        color: white;
+        text-shadow: 0 3px 5px rgba(0,0,0,0.5);
+      }
+    }
+  }
+  #wanted {
+    justify-content: center;
+    h1 {
+      margin-top: .25em;
+    }
+  }
+}
+
+/*--------------------------------------------------------------
+# CONTACT PAGE
+--------------------------------------------------------------*/
+
+.page-contact {
+  #upper {
+    padding: 0;
+    & > div {
+      flex-grow: 1;
+    }
+    #google_map {
+      position: relative;
+      overflow: hidden;
+      padding: 0;
+      iframe {
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        border: 0;
+      }
+    }
+    .page-content {
+      margin: 1.5em 0;
+      .wpforms-container .wpforms-recaptcha-container {
+        padding: 0;
+      }
+    }
+  }
+  #people {
+    background: $red;
+    color: rgba(255,255,255,0.8);
+    padding: 1em;
+    & > div {
+      display: flex;
+      flex-direction: column;
+      justify-content: space-around;
+      width: 100%;
+      text-align: center;
+      .person {
+        margin-bottom:1em;
+        h4 {
+          font-size: 1.5em;
+          color: white;
+          text-transform: uppercase;
+        }
+        p {
+          margin-bottom: 0;
+        }
+        a {
+          @include link_color( rgba(255,255,255,0.8), white );
+          text-decoration: none;
+        }
+      }
+    }
+    @include breakpoint('desktop') {
+      padding: 4em 1em;
+      & > div {
+        flex-direction: row;
+        text-align: left;
+        .person {
+          margin-bottom: 0;
+          h4 {
+            font-size: 1.25em;
+          }
+        }
+      }
+    }
+  }
+  #lower {
+    font-size: .8em;
+    @include bgimage('ta-ext-hangar.jpg');
+    background-attachment: fixed;
+    justify-content: center;
+    .innerbox {
+      width: 100%;
+      @include breakpoint('desktop') {
+        width: auto;
+      }
+    }
+    h1 {
+      margin: 0;
+      color: black;
+      @include breakpoint('mobile') {
+        font-size: 2.5em;
+      }
+    }
+    h2 {
+      color: black;
+    }
+    h3 {
+      margin-top: .25em;
+    }
+    h5 {
+      margin-bottom: 0;
+    }
+    p {
+      margin-bottom: 1em;
+    }
+    .main {
+      h5 {
+        color: rgba(0,0,0,0.9);
+      }
+    }
+  }
+}
